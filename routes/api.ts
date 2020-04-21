@@ -162,10 +162,14 @@ api.get('/servers/:server/databases/:database/collections/:collection/query', as
     }
   }
 
-  let limit = parseInt(req.query.limit, 10);
-  if (isNaN(limit)) { limit = 20; }
-  let skip  = parseInt(req.query.skip, 10);
-  if (isNaN(skip)) { skip = 0; }
+    let limit = parseInt(req.query.limit as string, 10);
+    if (isNaN(limit)) {
+      limit = 20;
+    }
+    let skip = parseInt(req.query.skip as string, 10);
+    if (isNaN(skip)) {
+      skip = 0;
+    }
 
   const c = await factory.mongoManager.getCollection(server, database, collection);
   if (!c) {
