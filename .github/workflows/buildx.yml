@@ -17,7 +17,7 @@ jobs:
         run: |
           DOCKER_USERNAME=${{ secrets.DOCKER_USERNAME }}
           DOCKER_IMAGE=technologiestiftung/${{ github.event.repository.name }}
-          DOCKER_PLATFORMS=linux/arm64
+          DOCKER_PLATFORMS=linux/arm64,linux/amd64
           VERSION=latest
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
