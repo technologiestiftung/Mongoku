@@ -1,3 +1,8 @@
 .git
 node_modules
 */node_modules
+.nvmrc
+.vscode
+dist
+Dockerfile
+LICENSE
