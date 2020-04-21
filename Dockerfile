@@ -19,7 +19,7 @@ COPY ./ /app
 #       && cd .. \
 #       && tsc \
 #       && apk del native-deps
-RUN apk --no-cache add g++ gcc libgcc libstdc++ linux-headers make python2
+RUN apk update && apk upgrade && apk --no-cache add g++ gcc libgcc libstdc++ linux-headers make python2
 
 RUN npm i --quiet node-gyp -g && \
   npm i --quiet && \

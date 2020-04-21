@@ -1,3 +1,5 @@
+# mostyl based on
+# https://github.com/crazy-max/diun/blob/4a696099c7e94e90092420479e7beb640edc9d8c/.github/workflows/build.yml
 on:
   pull_request:
     branches: [master]
@@ -11,10 +13,11 @@ jobs:
       -
         name: Prepare
         id: prepare
+        # DOCKER_PLATFORMS=linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/386,linux/ppc64le,linux/s390x
         run: |
           DOCKER_USERNAME=${{ secrets.DOCKER_USERNAME }}
           DOCKER_IMAGE=technologiestiftung/${{ github.event.repository.name }}
-          DOCKER_PLATFORMS=linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/386,linux/ppc64le,linux/s390x
+          DOCKER_PLATFORMS=linux/arm64
           VERSION=latest
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
